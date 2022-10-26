@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/project_nav"
+    app:startDestination="@id/partyListFragment">
+
+    <fragment
+        android:id="@+id/randomMepFragment"
+        android:name="com.example.project.screens.randomMep.RandomMepFragment"
+        android:label="RandomMepFragment">
+        <argument
+            android:name="party"
+            app:argType="string"/>
+        <action
+            android:id="@+id/action_randomMepFragment_to_mepMessageFragment"
+            app:destination="@id/mepMessageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/partyListFragment"
+        android:name="com.example.project.screens.partyList.PartyListFragment"
+        android:label="fragment_mep_list"
+        tools:layout="@layout/fragment_party_list" >
+        <action
+            android:id="@+id/action_partyListFragment_to_randomMepFragment"
+            app:destination="@id/randomMepFragment" />
+    </fragment>
+    <argument
+            android:name="party"
+            app:argType="string" />
+    <fragment
+        android:id="@+id/mepMessageFragment"
+        android:name="com.example.project.screens.mepMessage.MepMessageFragment"
+        android:label="fragment_mep_message"
+        tools:layout="@layout/fragment_mep_message">
+        <argument
+            android:name="personNumber"
+            app:argType="integer" />
+    </fragment>
+</navigation>
